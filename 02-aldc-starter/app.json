@@ -1,0 +1,32 @@
+{
+  "id": "22222222-bbbb-3333-cccc-444444444444",
+  "name": "Workshop B02 · ALDC + Skills Playground",
+  "publisher": "VS Sistemas",
+  "version": "1.0.0.0",
+  "brief": "Playground for ALDC + Agent Skills · Workshop V-Valley 2026 · Bloque 02",
+  "description": "Per-Tenant Extension used as hands-on playground during Bloque 02 of the Workshop ALDC V-Valley 2026. The .github/ folder starts clean (just copilot-instructions and skill-diagnostics) so you can watch ALDC populate it live during the demo.",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/bloques/02-aldc/",
+  "url": "https://github.com/javiarmesto/workshop-v-valley-aldc-2026-04",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "26.0.0.0",
+  "application": "26.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "14.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}

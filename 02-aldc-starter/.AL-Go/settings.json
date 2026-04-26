@@ -1,0 +1,8 @@
+{
+  "type": "PTE",
+  "appFolders": ["app"],
+  "testFolders": [],
+  "country": "w1",
+  "repoVersion": "1.0",
+  "versioningStrategy": 0
+}

@@ -1,0 +1,47 @@
+# ═══════════════════════════════════════════════════════════════════
+#  Workshop V-Valley 2026 · Bloque 01 · .gitignore
+# ═══════════════════════════════════════════════════════════════════
+
+# --- AL compiler artifacts ---
+*.app
+*.applibrary
+.alpackages/
+.alcache/
+.altemplates/
+.snapshots/
+rad.json
+
+# --- VS Code local (personal, per-user) ---
+.vscode/launch.json.user
+.vscode/settings.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# --- Build & test output ---
+TestResults/
+*.trx
+*.log
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+Icon?
+._*
+
+# --- Editor backups ---
+*.swp
+*.swo
+*~
+*.bak
+*.orig
+
+# --- Node (if any tooling is added later) ---
+node_modules/
+npm-debug.log
+
+# --- Environment / secrets · never commit ---
+.env
+.env.local
+*.key
+*.pfx
+secrets/

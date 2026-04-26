@@ -1,0 +1,8 @@
+{
+    "servers": {
+        "al-symbols-mcp": {
+            "command": "npx",
+            "args": ["al-mcp-server"]
+        }
+    }
+}

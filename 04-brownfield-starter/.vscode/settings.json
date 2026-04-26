@@ -1,0 +1,26 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "ForEach-Object": true,
+        "strings": true
+    },
+    "al.symbolsCountryRegion": "us",
+    
+    // AL Language settings
+    "al.enableCodeAnalysis": true,
+    "al.codeAnalyzers": ["${CodeCop}", "${PerTenantExtensionCop}", "${UICop}"],
+    
+    // GitHub Copilot settings
+    "github.copilot.enable": {
+        "*": true,
+        "al": true
+    },
+    
+    // Editor settings for better AI integration
+    "editor.inlineSuggest.enabled": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    "sarif-viewer.connectToGithubCodeScanning": "off"
+}
