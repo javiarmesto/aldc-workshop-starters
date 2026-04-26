@@ -76,21 +76,30 @@ Se invoca con `/extend-table` desde Copilot Chat. Cuando lo lances, Copilot:
 ### Arranque rápido (30 segundos)
 
 ```bash
-# 1. Fork este repo en tu cuenta GitHub (botón Fork arriba a la derecha)
-# 2. Clónalo en local
-git clone https://github.com/<tu-usuario>/workshop-b01-start.git
-cd workshop-b01-start
-code .
-
-# 3. VS Code instalará dependencias AL al abrir el workspace
-#    Tarda ~30s la primera vez
+# 1. Clona el repo de ejercicios
+git clone https://github.com/javiarmesto/workshop-v-valley-aldc-2026-04-EJERCICIOS.git
+# 2. Abre SOLO la carpeta del bloque (importante: no abras la raíz del repo)
+code workshop-v-valley-aldc-2026-04-EJERCICIOS/01-copilot-starter
 ```
+
+**⚙️ Configura antes de compilar** (2 minutos):
+
+1. Abre `.vscode/launch.json` → cambia `"environmentName"` al nombre de tu sandbox real
+2. Abre `app.json` → ajusta `idRanges`, `publisher` y `name` a los de tu empresa si quieres
+3. Descarga símbolos: `Ctrl+Shift+P` → `AL: Download Symbols`
+
+Sin los pasos anteriores AL Language no compilará — el sandbox es la referencia de tipos.
+
+> VS Code puede tardar ~30s en la primera carga de extensiones AL.
 
 ### Durante la demo
 
+> ⚠️ **Primer ejercicio — desactiva el contrato temporalmente**  
+> El Prompt 1 está diseñado para mostrar qué genera Copilot **sin** ningún contrato activo. Para que el contraste sea real, **mueve o elimina** `.github/copilot-instructions.md` antes de lanzarlo. Recupéralo después con `git checkout .github/copilot-instructions.md` antes de los prompts 2 y 3.
+
 El ponente irá ejecutando 3 prompts en Copilot Chat. Replica en tu máquina:
 
-**Prompt 1 · vago**
+**Prompt 1 · vago** *(sin contrato activo)*
 ```
 Create a table for customer support tiers
 ```

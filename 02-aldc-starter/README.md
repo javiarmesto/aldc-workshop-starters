@@ -87,14 +87,22 @@ Copilot emitirá un reporte estructurado con summary, findings por clase, y al f
 ### Arranque rápido
 
 ```bash
-# 1. Fork este repo en tu cuenta GitHub
-# 2. Clónalo en local
-git clone https://github.com/<tu-usuario>/workshop-b02-start.git
-cd workshop-b02-start
-code .
+# 1. Clona el repo de ejercicios
+git clone https://github.com/javiarmesto/workshop-v-valley-aldc-2026-04-EJERCICIOS.git
+# 2. Abre SOLO la carpeta del bloque (importante: no abras la raíz del repo)
+code workshop-v-valley-aldc-2026-04-EJERCICIOS/02-aldc-starter
 ```
 
-**Importante:** el workspace empieza con `.github/` casi vacío. Es **a propósito**. No añadas nada antes de la demo — parte de la demostración es ver `.github/` poblarse en vivo cuando el ponente ejecute `AL Collection: Install Toolkit to Workspace`.
+> 📁 **Abre la subcarpeta `02-aldc-starter/`, no la raíz del repo.**  
+> Los ficheros `app.json`, `.gitignore` y la carpeta `.vscode/` deben estar directamente en la raíz de lo que VS Code ve. Si abres el repo completo, Copilot y AL Language no encontrarán los ficheros donde esperan.
+
+**⚙️ Configura antes de compilar** (2 minutos):
+
+1. Abre `.vscode/launch.json` → cambia `"environmentName"` al nombre de tu sandbox real
+2. Revisa `app.json` → ajusta `idRanges` y `publisher` si quieres usar los de tu empresa
+3. Descarga símbolos: `Ctrl+Shift+P` → `AL: Download Symbols`
+
+**Importante:** el workspace empieza con `.github/` casi vacío. Es **a propósito**. No añadas nada antes de la demo.
 
 ### Durante la demo
 
@@ -114,11 +122,20 @@ Abre `.github/skills/skill-diagnostics/SKILL.md`. Mira:
 - **Sección `## Output format`** — forma exacta del reporte
 - **Sección `## Constraints`** — las reglas que la skill nunca rompe
 
-#### Paso 3 · introducir un defecto intencionado
+#### Paso 3 · probar la skill en un repo real (el tuyo)
 
-Para que la demo de `skill-diagnostics` tenga algo que reportar, introduce un defecto en `app/src/HelloWorld.PageExt.al` — por ejemplo, borra el `trigger OnOpenPage()` y comenta cualquier otra cosa que rompa una regla.
+Para que `skill-diagnostics` tenga **hallazgos evidentes**, no hace falta fabricar un defecto artificial. Lo más efectivo es lanzarla sobre un repositorio AL real tuyo — uno sin contrato ni ALDC.
 
-O mejor aún: deja que Copilot genere una tabla **sin aplicar el contrato** (con un prompt vago del estilo "create a support tier table") y usa ese output defectuoso como objeto de auditoría.
+1. **Abre un repo AL tuyo** en VS Code (cualquier proyecto real de tu empresa)
+2. **Copia la carpeta `.github/`** de este starter (`02-aldc-starter/.github/`) a la raíz de ese repo:  
+   Debe quedar: `tu-repo/.github/copilot-instructions.md` y `tu-repo/.github/skills/skill-diagnostics/`
+3. **Lanza la skill** en Copilot Chat sobre ese workspace:
+   ```
+   Load skill-diagnostics and scan the workspace. Follow the output format strictly.
+   ```
+4. **Observa los hallazgos.** Sin contrato propio en ese repo, la skill reportará múltiples incumplimientos — es el punto de partida que queremos ver.
+
+> Esto es mucho más didáctico que introducir un defecto a mano — los findings son reales, son tuyos, y los reconoces.
 
 #### Paso 4 · lanzar la skill
 
@@ -133,14 +150,21 @@ Observa el reporte. Recorre los findings uno a uno con el ponente. Ve cómo cada
 
 Esto es **Skills Evidencing** operando.
 
-### Paso 5 · instalar ALDC en vivo
+### Paso 5 · instalar ALDC y repetir la auditoría
 
-Cuando el ponente lo indique, abre Marketplace y busca **AL Development Collection**. Instala la extensión, ejecuta `AL Collection: Install Toolkit to Workspace`, y refresca el explorador. Verás `.github/` poblarse con:
+Cuando el ponente lo indique, vuelve al workspace del starter (o al repo propio donde instalaste la skill). Abre Marketplace y busca **AL Development Collection**. Instala la extensión, ejecuta `AL Collection: Install Toolkit to Workspace`, y refresca el explorador. Verifica que `.github/` se ha poblado con:
 
 - `agents/` · 4 agentes (al-architect, al-conductor, al-developer, al-presales)
 - `prompts/` · prompts reutilizables
 - `skills/` · 15 skills (tu `skill-diagnostics` se queda **intacta** — ALDC añade, no sobrescribe)
 - `workflows/` · 10 workflows
+
+**Ahora relanza la misma auditoría:**
+```
+Load skill-diagnostics and scan the workspace. Follow the output format strictly.
+```
+
+Compara el reporte con el anterior. Con el contrato instalado por ALDC, muchos hallazgos desaparecerán automáticamente porque el contrato cubre sus reglas. Los que queden son los que el proyecto tiene que corregir en código.
 
 ## Ejercicios opcionales · crea tu propia skill
 
