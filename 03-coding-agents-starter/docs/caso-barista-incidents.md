@@ -1,3 +1,5 @@
+> 🇪🇸 Español | [🇬🇧 English](../../i18n/en/03-coding-agents-starter/docs/caso-barista-incidents.md)
+
 # Contexto · Barista Incidents
 
 > Este es el material de partida del caso de uso para el Bloque 03.

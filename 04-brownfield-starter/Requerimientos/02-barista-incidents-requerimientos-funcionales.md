@@ -1,3 +1,5 @@
+> 🇪🇸 Español | [🇬🇧 English](../../i18n/en/04-brownfield-starter/Requerimientos/02-barista-incidents-requerimientos-funcionales.md)
+
 # Barista Incidents — Requerimientos Funcionales
 
 **Documento**: Requerimientos funcionales del proyecto (visión de negocio)

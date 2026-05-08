@@ -1,3 +1,5 @@
+> 🇪🇸 Español | [🇬🇧 English](../../i18n/en/04-brownfield-starter/Requerimientos/01-contexto-cronus-barista.md)
+
 # Contexto del Caso: CRONUS USA, Inc. — Barista Incidents
 
 **Documento**: Contexto de negocio del proyecto

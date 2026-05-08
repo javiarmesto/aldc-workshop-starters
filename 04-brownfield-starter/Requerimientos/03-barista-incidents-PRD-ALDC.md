@@ -1,3 +1,5 @@
+> 🇪🇸 Español | [🇬🇧 English](../../i18n/en/04-brownfield-starter/Requerimientos/03-barista-incidents-PRD-ALDC.md)
+
 # Barista Incidents — PRD Técnico para ALDC Architect
 
 **Documento**: PRD Técnico (fuente de entrada para `@al-architect` de ALDC)

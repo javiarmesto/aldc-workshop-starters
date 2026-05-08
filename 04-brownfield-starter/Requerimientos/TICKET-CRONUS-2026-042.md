@@ -1,3 +1,5 @@
+> 🇪🇸 Español | [🇬🇧 English](../../i18n/en/04-brownfield-starter/Requerimientos/TICKET-CRONUS-2026-042.md)
+
 # 🎫 Ticket de soporte CRONUS-2026-042
 
 **De**: soporte@cronus-usa.com

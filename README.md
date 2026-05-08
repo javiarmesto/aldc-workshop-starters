@@ -1,3 +1,5 @@
+> 🇪🇸 Español | [🇬🇧 English](i18n/en/README.md)
+
 # Workshop ALDC · V-Valley 2026 · Ejercicios
 
 > **Material práctico** del Workshop "Coding agents para Business Central"  

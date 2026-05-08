@@ -1,3 +1,5 @@
+> 🇪🇸 Español | [🇬🇧 English](../i18n/en/01-copilot-starter/README.md)
+
 <div align="center">
 
 # Workshop ALDC · V-Valley 2026

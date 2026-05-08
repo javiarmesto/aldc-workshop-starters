@@ -1,3 +1,5 @@
+> 🇪🇸 Español | [🇬🇧 English](../../i18n/en/04-greenfield-starter/Requerimientos/PRD-v0.1-live-mini.md)
+
 # Barista Incidents — PRD v0.1-live (Sprint 0)
 
 **Proyecto**: Barista Incidents

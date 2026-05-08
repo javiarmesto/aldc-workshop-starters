@@ -1,3 +1,5 @@
+> 🇪🇸 Español | [🇬🇧 English](../../i18n/en/03-coding-agents-starter/docs/INSTALACION-ALDC.md)
+
 # Instalación de ALDC en este workspace
 
 > Este template parte **sin ALDC instalado** a propósito — queremos que veas
