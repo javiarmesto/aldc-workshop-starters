@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop ALDC · V-Valley 2026 · Ejercicios</title>
+<meta name="description" content="Repositorio de ejercicios del Workshop ALDC V-Valley 2026. Cinco workspaces starter para Business Central con GitHub Copilot y ALDC.">
+<meta name="author" content="Javier Armesto">
+<link rel="canonical" href="https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04-EJERCICIOS/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Workshop ALDC · Ejercicios · V-Valley 2026">
+<meta property="og:description" content="Cinco workspaces starter para el Workshop ALDC. Business Central + GitHub Copilot + ALDC. V-Valley, 27 abril 2026.">
+<meta property="og:url" content="https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04-EJERCICIOS/">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@javiarmesto">
+<meta name="theme-color" content="#111827">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Figtree:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg-base:#111827;
+  --bg-deeper:#0b121f;
+  --indigo:#818CF8;
+  --magenta:#E879A8;
+  --cyan:#38BDF8;
+  --emerald:#34D399;
+  --amber:#FBBF24;
+  --rose:#FB7185;
+  --text-primary:rgba(255,255,255,0.95);
+  --text-secondary:rgba(255,255,255,0.70);
+  --text-muted:rgba(255,255,255,0.45);
+  --glass-surface:rgba(255,255,255,0.07);
+  --glass-surface-hover:rgba(255,255,255,0.11);
+  --glass-border:rgba(255,255,255,0.12);
+  --glass-border-strong:rgba(255,255,255,0.20);
+  --font-display:'Space Mono',ui-monospace,monospace;
+  --font-body:'Figtree',system-ui,sans-serif;
+  --font-code:'JetBrains Mono',ui-monospace,monospace;
+  --bg-elevated:rgba(17,24,39,0.6);
+  --bg-footer:rgba(11,18,31,0.4);
+  --grid-line:rgba(255,255,255,0.025);
+  --hero-h1-start:rgba(255,255,255,0.98);
+  --link-item-bg:rgba(0,0,0,0.2);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg-base);
+  color:var(--text-primary);
+  font-family:var(--font-body);
+  line-height:1.6;
+  min-height:100vh;
+  overflow-x:hidden;
+  position:relative;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:-20%;
+  z-index:-3;
+  background:
+    radial-gradient(ellipse 900px 700px at 12% 15%,rgba(129,140,248,0.22),transparent 55%),
+    radial-gradient(ellipse 800px 600px at 88% 78%,rgba(232,121,168,0.18),transparent 55%),
+    radial-gradient(ellipse 700px 500px at 50% 50%,rgba(56,189,248,0.10),transparent 60%),
+    var(--bg-base);
+  animation:drift 28s ease-in-out infinite alternate;
+  pointer-events:none;
+}
+@keyframes drift{
+  0%{transform:translate(0,0) rotate(0deg)}
+  100%{transform:translate(-2%,2%) rotate(1deg)}
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  background-image:
+    linear-gradient(var(--grid-line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 1400px 1000px at 50% 40%,black 30%,transparent 85%);
+  -webkit-mask-image:radial-gradient(ellipse 1400px 1000px at 50% 40%,black 30%,transparent 85%);
+  pointer-events:none;
+}
+.orb{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(60px);
+  pointer-events:none;
+  z-index:-2;
+  opacity:0.55;
+}
+.orb.o1{width:500px;height:500px;background:radial-gradient(circle,rgba(129,140,248,0.6),transparent 70%);top:-100px;left:-80px;animation:float1 18s ease-in-out infinite}
+.orb.o2{width:400px;height:400px;background:radial-gradient(circle,rgba(232,121,168,0.5),transparent 70%);top:20%;right:-100px;animation:float2 22s ease-in-out infinite}
+.orb.o3{width:350px;height:350px;background:radial-gradient(circle,rgba(56,189,248,0.4),transparent 70%);bottom:-60px;left:35%;animation:float3 25s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,60px) scale(1.08)}}
+@keyframes float2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-50px,40px) scale(0.92)}}
+@keyframes float3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-50px) scale(1.05)}}
+
+/* -- Top nav -- */
+.top-brand{
+  position:sticky;
+  top:0;
+  z-index:101;
+  background:var(--bg-elevated);
+  backdrop-filter:blur(20px) saturate(180%);
+  border-bottom:1px solid var(--glass-border);
+  transition:background 0.3s ease,border-color 0.3s ease;
+}
+.top-brand-inner{
+  max-width:1280px;
+  margin:0 auto;
+  padding:0.9rem 2rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:2rem;
+}
+.brand{
+  font-family:var(--font-display);
+  font-size:0.85rem;
+  font-weight:700;
+  color:var(--text-primary);
+  display:flex;
+  align-items:center;
+  gap:0.6rem;
+}
+.brand::before{
+  content:"";
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--emerald);
+  box-shadow:0 0 14px var(--emerald);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(0.85)}}
+.brand-meta{
+  font-family:var(--font-display);
+  font-size:0.72rem;
+  color:var(--text-muted);
+  letter-spacing:0.08em;
+}
+.organizer-logo{
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+  padding-left:1.5rem;
+  margin-left:1rem;
+  border-left:1px solid var(--glass-border);
+}
+.organizer-logo img{
+  height:28px;
+  width:auto;
+  border-radius:6px;
+  opacity:0.90;
+  transition:opacity 0.2s ease;
+}
+.organizer-logo img:hover{opacity:1}
+.organizer-label{
+  font-family:var(--font-display);
+  font-size:0.62rem;
+  color:var(--text-muted);
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.nav-links{display:flex;gap:0.5rem;align-items:center}
+.nav-link{
+  font-family:var(--font-display);
+  font-size:0.72rem;
+  color:var(--text-secondary);
+  text-decoration:none;
+  padding:0.45rem 0.9rem;
+  border-radius:999px;
+  border:1px solid transparent;
+  transition:all 0.2s ease;
+  letter-spacing:0.04em;
+}
+.nav-link:hover{background:var(--glass-surface);color:var(--text-primary);border-color:var(--glass-border)}
+.nav-link.primary{background:rgba(56,189,248,0.1);color:var(--cyan);border-color:rgba(56,189,248,0.3)}
+.nav-link.primary:hover{background:rgba(56,189,248,0.18);border-color:var(--cyan)}
+
+/* -- Hero -- */
+.hero{
+  min-height:calc(100vh - 60px);
+  max-width:1280px;
+  margin:0 auto;
+  padding:5rem 2rem 4rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  position:relative;
+}
+.hero-eyebrow{
+  font-family:var(--font-display);
+  font-size:0.75rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  margin-bottom:1.5rem;
+  display:inline-flex;
+  align-items:center;
+  gap:0.75rem;
+  animation:fadeInUp 0.7s ease-out;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{
+  content:"";
+  width:40px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--cyan));
+}
+.hero-eyebrow::after{background:linear-gradient(270deg,transparent,var(--cyan))}
+.hero h1{
+  font-family:var(--font-display);
+  font-size:clamp(2.5rem,7vw,5.5rem);
+  line-height:1.02;
+  font-weight:700;
+  letter-spacing:-0.03em;
+  margin-bottom:1.75rem;
+  background:linear-gradient(135deg,
+    var(--hero-h1-start) 0%,
+    var(--indigo) 50%,
+    var(--magenta) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:fadeInUp 0.8s ease-out 0.1s both;
+  max-width:15ch;
+}
+.hero h1 .accent{
+  font-style:italic;
+  background:linear-gradient(135deg,var(--cyan),var(--emerald));
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero-sub{
+  font-size:clamp(1.05rem,1.4vw,1.35rem);
+  color:var(--text-secondary);
+  max-width:680px;
+  margin-bottom:2.5rem;
+  line-height:1.55;
+  animation:fadeInUp 0.8s ease-out 0.2s both;
+}
+.hero-sub strong{color:var(--text-primary);font-weight:600}
+.hero-event-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.6rem;
+  margin-bottom:3rem;
+  animation:fadeInUp 0.8s ease-out 0.3s both;
+}
+.event-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.55rem 1rem;
+  background:var(--glass-surface);
+  border:1px solid var(--glass-border);
+  border-radius:999px;
+  font-family:var(--font-display);
+  font-size:0.72rem;
+  letter-spacing:0.05em;
+  color:var(--text-secondary);
+  backdrop-filter:blur(12px);
+  transition:all 0.2s ease;
+}
+.event-chip:hover{border-color:var(--glass-border-strong);color:var(--text-primary)}
+.event-chip .icon{color:var(--cyan);font-size:0.85rem}
+.event-chip.date .icon{color:var(--magenta)}
+.event-chip.sponsor .icon{color:var(--amber)}
+.event-chip.level .icon{color:var(--emerald)}
+.hero-cta-row{
+  display:flex;
+  gap:1rem;
+  flex-wrap:wrap;
+  animation:fadeInUp 0.8s ease-out 0.4s both;
+}
+.cta{
+  font-family:var(--font-display);
+  font-size:0.85rem;
+  padding:1.1rem 1.8rem;
+  border-radius:14px;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:0.6rem;
+  transition:all 0.25s ease;
+  border:1px solid var(--glass-border);
+  position:relative;
+  overflow:hidden;
+}
+.cta.primary{
+  background:linear-gradient(135deg,rgba(129,140,248,0.35),rgba(232,121,168,0.2));
+  border-color:rgba(129,140,248,0.5);
+  color:var(--text-primary);
+  font-weight:700;
+  box-shadow:0 4px 24px rgba(129,140,248,0.2);
+}
+.cta.primary::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent);
+  opacity:0;
+  transition:opacity 0.25s ease;
+}
+.cta.primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(129,140,248,0.35);border-color:var(--indigo)}
+.cta.primary:hover::before{opacity:1}
+.cta.secondary{
+  background:var(--glass-surface);
+  color:var(--text-secondary);
+  backdrop-filter:blur(12px);
+}
+.cta.secondary:hover{background:var(--glass-surface-hover);color:var(--text-primary);border-color:var(--glass-border-strong);transform:translateY(-2px)}
+.cta .arrow{color:var(--cyan);transition:transform 0.25s ease}
+.cta:hover .arrow{transform:translateX(3px)}
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* -- Section wrapper -- */
+section{
+  max-width:1280px;
+  margin:0 auto;
+  padding:5rem 2rem;
+  position:relative;
+}
+.section-label{
+  font-family:var(--font-display);
+  font-size:0.72rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  margin-bottom:1rem;
+  display:inline-flex;
+  align-items:center;
+  gap:0.75rem;
+}
+.section-label::before{
+  content:"";
+  width:32px;
+  height:1px;
+  background:var(--cyan);
+}
+.section-title{
+  font-family:var(--font-display);
+  font-size:clamp(1.75rem,3.5vw,2.75rem);
+  line-height:1.15;
+  letter-spacing:-0.02em;
+  margin-bottom:1.25rem;
+  max-width:25ch;
+}
+.section-intro{
+  font-size:1.05rem;
+  color:var(--text-secondary);
+  max-width:640px;
+  margin-bottom:3rem;
+  line-height:1.6;
+}
+.section-intro strong{color:var(--text-primary)}
+
+/* -- Starters grid -- */
+.bloques-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:1.25rem;
+}
+.bloque-card{
+  padding:2rem 2rem 1.75rem;
+  background:var(--glass-surface);
+  border:1px solid var(--glass-border);
+  border-radius:20px;
+  backdrop-filter:blur(18px) saturate(140%);
+  text-decoration:none;
+  color:inherit;
+  position:relative;
+  overflow:hidden;
+  transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+  min-height:260px;
+  display:flex;
+  flex-direction:column;
+}
+.bloque-card::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:3px;
+  background:linear-gradient(90deg,transparent,var(--indigo),var(--cyan),transparent);
+  opacity:0.6;
+  transition:opacity 0.3s ease;
+}
+.bloque-card::after{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:20px;
+  background:linear-gradient(135deg,rgba(129,140,248,0),rgba(232,121,168,0));
+  opacity:0;
+  transition:opacity 0.3s ease;
+  z-index:-1;
+  pointer-events:none;
+}
+.bloque-card:hover{
+  background:var(--glass-surface-hover);
+  border-color:var(--glass-border-strong);
+  transform:translateY(-4px);
+  box-shadow:0 16px 48px rgba(0,0,0,0.4),0 0 0 1px rgba(129,140,248,0.2);
+}
+.bloque-card:hover::before{opacity:1;background:linear-gradient(90deg,transparent,var(--indigo),var(--magenta),var(--cyan),transparent)}
+
+/* Featured = span 12 */
+.bloque-card.featured{
+  grid-column:span 12;
+  min-height:auto;
+  padding:2.75rem 2.75rem 2.5rem;
+  background:
+    linear-gradient(135deg,rgba(129,140,248,0.1) 0%,rgba(232,121,168,0.05) 100%),
+    var(--glass-surface);
+  border-color:rgba(129,140,248,0.35);
+}
+.bloque-card.featured .bloque-body{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2.5rem;
+  align-items:start;
+}
+.bloque-card.featured .bloque-title{
+  font-size:clamp(1.5rem,2.4vw,2rem);
+  line-height:1.15;
+}
+.bloque-card.featured .bloque-highlight-list{margin-top:0}
+.bloque-card.col-6{grid-column:span 6}
+@media(max-width:880px){
+  .bloque-card.col-6{grid-column:span 12}
+  .bloque-card.featured .bloque-body{grid-template-columns:1fr}
+}
+
+.bloque-head{
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:1rem;
+  margin-bottom:1.25rem;
+}
+.bloque-num{
+  font-family:var(--font-display);
+  font-size:3rem;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:-0.04em;
+  background:linear-gradient(135deg,var(--indigo) 0%,var(--cyan) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.bloque-card.featured .bloque-num{
+  font-size:4rem;
+  background:linear-gradient(135deg,var(--magenta) 0%,var(--amber) 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.bloque-card.greenfield .bloque-num{
+  background:linear-gradient(135deg,var(--emerald) 0%,var(--cyan) 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.bloque-card.brownfield .bloque-num{
+  background:linear-gradient(135deg,var(--amber) 0%,var(--rose) 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.bloque-meta{
+  font-family:var(--font-code);
+  font-size:0.72rem;
+  color:var(--text-muted);
+  padding:0.3rem 0.7rem;
+  background:rgba(0,0,0,0.25);
+  border:1px solid var(--glass-border);
+  border-radius:6px;
+  white-space:nowrap;
+}
+.bloque-title{
+  font-family:var(--font-display);
+  font-size:1.2rem;
+  line-height:1.25;
+  letter-spacing:-0.01em;
+  margin-bottom:0.85rem;
+  color:var(--text-primary);
+}
+.bloque-desc{
+  color:var(--text-secondary);
+  font-size:0.9rem;
+  line-height:1.55;
+  margin-bottom:1.25rem;
+  flex-grow:1;
+}
+.bloque-highlight-list{
+  list-style:none;
+  padding:0;
+  margin:0 0 1.25rem;
+}
+.bloque-highlight-list li{
+  font-size:0.82rem;
+  color:var(--text-secondary);
+  padding:0.25rem 0 0.25rem 1.2rem;
+  position:relative;
+  line-height:1.5;
+}
+.bloque-highlight-list li::before{
+  content:"◆";
+  position:absolute;
+  left:0;
+  color:var(--cyan);
+  font-size:0.55rem;
+  top:0.55rem;
+}
+.bloque-card.featured .bloque-highlight-list li::before{color:var(--magenta)}
+.bloque-card.greenfield .bloque-highlight-list li::before{color:var(--emerald)}
+.bloque-card.brownfield .bloque-highlight-list li::before{color:var(--amber)}
+.bloque-footer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding-top:1rem;
+  border-top:1px solid var(--glass-border);
+  margin-top:auto;
+}
+.bloque-duration{
+  font-family:var(--font-display);
+  font-size:0.68rem;
+  color:var(--text-muted);
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+.bloque-open{
+  font-family:var(--font-display);
+  font-size:0.78rem;
+  color:var(--cyan);
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  transition:gap 0.25s ease;
+}
+.bloque-card:hover .bloque-open{gap:0.8rem;color:var(--text-primary)}
+.bloque-open::after{content:"→";color:var(--cyan);transition:transform 0.25s ease}
+.bloque-card:hover .bloque-open::after{transform:translateX(3px)}
+
+/* -- Flow / Requisitos -- */
+.flow-container{
+  padding:3rem 2rem;
+  background:var(--glass-surface);
+  border:1px solid var(--glass-border);
+  border-radius:24px;
+  backdrop-filter:blur(18px);
+  position:relative;
+  overflow:hidden;
+}
+.flow-container::before{
+  content:"";
+  position:absolute;
+  top:0;left:50%;
+  transform:translateX(-50%);
+  width:60%;height:200px;
+  background:radial-gradient(ellipse at top,rgba(129,140,248,0.15),transparent 70%);
+  pointer-events:none;
+}
+.flow-row{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:0.75rem;
+  flex-wrap:wrap;
+  position:relative;
+}
+.flow-node{
+  padding:1rem 1.35rem;
+  background:var(--bg-elevated);
+  border:1px solid var(--glass-border);
+  border-radius:14px;
+  backdrop-filter:blur(12px);
+  text-align:center;
+  min-width:130px;
+  transition:all 0.3s ease;
+  display:block;
+}
+.flow-node .fn-num{
+  font-family:var(--font-display);
+  font-size:0.65rem;
+  color:var(--cyan);
+  letter-spacing:0.15em;
+  margin-bottom:0.3rem;
+  display:block;
+}
+.flow-node .fn-name{
+  font-family:var(--font-display);
+  font-size:0.85rem;
+  color:var(--text-primary);
+  font-weight:700;
+  display:block;
+}
+.flow-node .fn-dur{
+  font-family:var(--font-code);
+  font-size:0.68rem;
+  color:var(--text-muted);
+  margin-top:0.3rem;
+  display:block;
+}
+.flow-arrow{
+  color:var(--text-muted);
+  font-size:1.3rem;
+  font-weight:700;
+}
+.flow-end{
+  padding:0.5rem 0.85rem;
+  background:rgba(52,211,153,0.08);
+  border:1px solid rgba(52,211,153,0.35);
+  border-radius:999px;
+  font-family:var(--font-display);
+  font-size:0.7rem;
+  color:var(--emerald);
+  letter-spacing:0.08em;
+}
+.flow-caption{
+  text-align:center;
+  color:var(--text-secondary);
+  font-size:0.88rem;
+  margin-top:2rem;
+  font-style:italic;
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* -- Principles -- */
+.principles{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.25rem;
+  margin-top:3rem;
+}
+.principle{
+  padding:1.75rem;
+  background:var(--glass-surface);
+  border:1px solid var(--glass-border);
+  border-radius:16px;
+  backdrop-filter:blur(14px);
+  position:relative;
+  overflow:hidden;
+}
+.principle::before{
+  content:attr(data-num);
+  position:absolute;
+  top:-12px;right:14px;
+  font-family:var(--font-display);
+  font-size:5rem;
+  font-weight:700;
+  color:var(--text-primary);
+  opacity:0.06;
+  line-height:1;
+  pointer-events:none;
+}
+.principle h4{
+  font-family:var(--font-display);
+  font-size:1rem;
+  margin-bottom:0.6rem;
+  color:var(--text-primary);
+  letter-spacing:-0.01em;
+}
+.principle h4 .accent{color:var(--cyan)}
+.principle p{
+  color:var(--text-secondary);
+  font-size:0.88rem;
+  margin:0;
+  line-height:1.55;
+}
+@media(max-width:820px){.principles{grid-template-columns:1fr}}
+
+/* -- Credits -- */
+.credits{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.25rem;
+  margin-top:3rem;
+}
+.credit-card{
+  padding:1.75rem;
+  background:var(--glass-surface);
+  border:1px solid var(--glass-border);
+  border-radius:16px;
+  backdrop-filter:blur(14px);
+}
+.credit-card h4{
+  font-family:var(--font-display);
+  font-size:0.72rem;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--cyan);
+  margin-bottom:1rem;
+}
+.credit-card p{
+  font-size:0.88rem;
+  color:var(--text-secondary);
+  line-height:1.6;
+  margin-bottom:0.85rem;
+}
+.credit-card p:last-child{margin-bottom:0}
+.credit-card strong{color:var(--text-primary);font-weight:600}
+.credit-card a{color:var(--cyan);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.2s ease}
+.credit-card a:hover{border-bottom-color:var(--cyan)}
+.credit-link-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.5rem}
+.credit-link-list li{font-size:0.85rem}
+.credit-link-list a{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0.6rem 0.9rem;
+  background:var(--link-item-bg);
+  border:1px solid var(--glass-border);
+  border-radius:8px;
+  color:var(--text-secondary);
+  text-decoration:none;
+  transition:all 0.2s ease;
+}
+.credit-link-list a:hover{background:var(--glass-surface-hover);border-color:var(--cyan);color:var(--text-primary)}
+.credit-link-list .ext::after{content:"↗";color:var(--cyan);margin-left:0.5rem;font-size:0.85rem}
+@media(max-width:880px){.credits{grid-template-columns:1fr}}
+
+/* -- Quote block -- */
+.quote-block{
+  max-width:1280px;
+  margin:0 auto;
+  padding:3rem 2rem;
+  text-align:center;
+  background:linear-gradient(135deg,rgba(129,140,248,0.08),rgba(232,121,168,0.05));
+  border:1px solid rgba(129,140,248,0.25);
+  border-radius:24px;
+  backdrop-filter:blur(18px);
+  position:relative;
+  overflow:hidden;
+}
+.quote-block::before,.quote-block::after{
+  content:"";
+  position:absolute;
+  width:220px;height:220px;
+  border-radius:50%;
+  filter:blur(80px);
+  pointer-events:none;
+  opacity:0.3;
+}
+.quote-block::before{background:var(--indigo);top:-50px;left:-50px}
+.quote-block::after{background:var(--magenta);bottom:-50px;right:-50px}
+.quote-block p{
+  font-family:var(--font-display);
+  font-size:clamp(1.25rem,2.5vw,1.75rem);
+  line-height:1.4;
+  color:var(--text-primary);
+  letter-spacing:-0.01em;
+  max-width:40ch;
+  margin:0 auto 0.75rem;
+  position:relative;
+  z-index:1;
+}
+.quote-block .attribution{
+  font-family:var(--font-code);
+  font-size:0.8rem;
+  color:var(--text-muted);
+  position:relative;
+  z-index:1;
+}
+
+/* -- Footer -- */
+.site-footer{
+  margin-top:5rem;
+  padding:3rem 2rem 2rem;
+  border-top:1px solid var(--glass-border);
+  background:var(--bg-footer);
+  backdrop-filter:blur(20px);
+}
+.site-footer-inner{
+  max-width:1280px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:1rem;
+}
+.footer-links{
+  display:flex;
+  gap:1.5rem;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-bottom:0.5rem;
+}
+.footer-links a{
+  font-family:var(--font-display);
+  font-size:0.72rem;
+  color:var(--text-secondary);
+  text-decoration:none;
+  letter-spacing:0.05em;
+  transition:color 0.2s ease;
+}
+.footer-links a:hover{color:var(--cyan)}
+.footer-license{
+  font-size:0.78rem;
+  color:var(--text-muted);
+  line-height:1.6;
+  max-width:600px;
+}
+.footer-license a{color:var(--text-secondary);border-bottom:1px solid var(--glass-border)}
+.footer-license a:hover{color:var(--cyan);border-color:var(--cyan)}
+.footer-made{
+  font-family:var(--font-display);
+  font-size:0.68rem;
+  color:var(--text-muted);
+  letter-spacing:0.1em;
+  margin-top:0.5rem;
+}
+
+/* -- Hero QR block -- */
+.hero-repo-block{
+  display:flex;
+  align-items:center;
+  gap:1.5rem;
+  margin-top:2rem;
+  padding:1rem 1.4rem;
+  background:var(--glass-surface);
+  border:1px solid var(--glass-border);
+  border-radius:16px;
+  backdrop-filter:blur(12px);
+  width:fit-content;
+  animation:fadeInUp 0.8s ease-out 0.5s both;
+  transition:border-color 0.2s ease;
+  text-decoration:none;
+  color:inherit;
+}
+.hero-repo-block:hover{border-color:var(--glass-border-strong)}
+.hero-repo-block .qr-wrap{
+  flex-shrink:0;
+  background:#fff;
+  border-radius:10px;
+  padding:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.hero-repo-block .qr-wrap img{
+  width:88px;height:88px;
+  display:block;
+  border-radius:6px;
+}
+.hero-repo-block .qr-info{
+  display:flex;
+  flex-direction:column;
+  gap:0.35rem;
+}
+.hero-repo-block .qr-label{
+  font-family:var(--font-display);
+  font-size:0.65rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--text-muted);
+}
+.hero-repo-block .qr-title{
+  font-family:var(--font-display);
+  font-size:0.88rem;
+  font-weight:700;
+  color:var(--text-primary);
+  line-height:1.3;
+}
+.hero-repo-block .qr-url{
+  font-family:var(--font-code);
+  font-size:0.72rem;
+  color:var(--cyan);
+  word-break:break-all;
+}
+
+/* -- Scroll hint -- */
+.scroll-hint{
+  position:absolute;
+  bottom:2rem;left:50%;
+  transform:translateX(-50%);
+  font-family:var(--font-display);
+  font-size:0.65rem;
+  color:var(--text-muted);
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  animation:fadeInUp 1s ease-out 0.8s both,bounce 2.5s ease-in-out infinite 2s;
+  pointer-events:none;
+}
+.scroll-hint::after{
+  content:"↓";
+  display:block;
+  text-align:center;
+  margin-top:0.5rem;
+  font-size:1rem;
+  color:var(--cyan);
+}
+@keyframes bounce{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(6px)}
+}
+
+/* -- Responsive -- */
+@media(max-width:720px){
+  .hero{padding:3rem 1.25rem 2rem;min-height:auto}
+  section{padding:3.5rem 1.25rem}
+  .hero-event-meta{gap:0.4rem}
+  .event-chip{padding:0.45rem 0.8rem;font-size:0.68rem}
+  .bloque-card{padding:1.5rem;min-height:auto}
+  .bloque-card.featured{padding:2rem 1.75rem}
+  .bloque-num{font-size:2.5rem}
+  .bloque-card.featured .bloque-num{font-size:3rem}
+  .top-brand-inner{padding:0.8rem 1.25rem;gap:0.75rem}
+  .brand-meta{display:none}
+  .organizer-label{display:none}
+  .organizer-logo{padding-left:0.75rem;margin-left:0.5rem}
+  .nav-link{font-size:0.65rem;padding:0.4rem 0.75rem}
+  .flow-container{padding:2rem 1rem}
+  .flow-row{flex-direction:column}
+  .flow-arrow{transform:rotate(90deg)}
+  .scroll-hint{display:none}
+}
+
+/* -- Theme toggle -- */
+.theme-toggle{
+  background:var(--glass-surface);
+  border:1px solid var(--glass-border);
+  color:var(--text-secondary);
+  width:34px;height:34px;
+  border-radius:999px;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.95rem;
+  transition:all 0.2s ease;
+  flex-shrink:0;
+  padding:0;line-height:1;
+}
+.theme-toggle:hover{background:var(--glass-surface-hover);color:var(--text-primary);border-color:var(--glass-border-strong)}
+
+/* -- Light theme -- */
+[data-theme="light"]{
+  --bg-base:#f0f4f8;
+  --bg-deeper:#e2e8f0;
+  --indigo:#4F46E5;
+  --magenta:#C2185B;
+  --cyan:#0284C7;
+  --emerald:#059669;
+  --amber:#B45309;
+  --rose:#DC2626;
+  --text-primary:rgba(15,23,42,0.95);
+  --text-secondary:rgba(15,23,42,0.62);
+  --text-muted:rgba(15,23,42,0.40);
+  --glass-surface:rgba(0,0,0,0.04);
+  --glass-surface-hover:rgba(0,0,0,0.08);
+  --glass-border:rgba(0,0,0,0.10);
+  --glass-border-strong:rgba(0,0,0,0.20);
+  --bg-elevated:rgba(255,255,255,0.72);
+  --bg-footer:rgba(226,232,240,0.80);
+  --grid-line:rgba(0,0,0,0.05);
+  --hero-h1-start:rgba(15,23,42,0.92);
+  --link-item-bg:rgba(0,0,0,0.05);
+}
+[data-theme="light"] body::before{
+  background:
+    radial-gradient(ellipse 900px 700px at 12% 15%,rgba(99,102,241,0.14),transparent 55%),
+    radial-gradient(ellipse 800px 600px at 88% 78%,rgba(194,24,91,0.10),transparent 55%),
+    radial-gradient(ellipse 700px 500px at 50% 50%,rgba(2,132,199,0.08),transparent 60%),
+    var(--bg-base);
+}
+[data-theme="light"] body::after{
+  background-image:
+    linear-gradient(var(--grid-line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+}
+[data-theme="light"] .orb{opacity:0.18}
+body{transition:background-color 0.3s ease,color 0.2s ease}
+.lang-switch{display:flex;align-items:center;gap:0.35rem;flex-shrink:0}
+.lang-active{font-size:1.25rem;opacity:1;cursor:default;line-height:1}
+.lang-btn{font-size:1.25rem;text-decoration:none;opacity:0.35;transition:opacity 0.2s ease;line-height:1}
+.lang-btn:hover{opacity:1}
+</style>
+</head>
+<body>
+
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+<div class="orb o3"></div>
+
+<header class="top-brand">
+  <div class="top-brand-inner">
+    <div class="brand">
+      Workshop ALDC
+      <span class="brand-meta">· Ejercicios</span>
+    </div>
+    <div class="organizer-logo">
+      <span class="organizer-label">organizado por</span>
+      <img src="https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04-REPO/WEB_LogoV-Valley_NEG.jpg" alt="V-Valley" loading="eager">
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">🌙</button>
+    <div class="lang-switch">
+      <span class="lang-active" title="Español (actual)">🇪🇸</span>
+      <a class="lang-btn" href="./en/" title="English version" aria-label="English">🇬🇧</a>
+    </div>
+    <nav class="nav-links" aria-label="Accesos rápidos">
+      <a class="nav-link" href="#starters">Starters</a>
+      <a class="nav-link" href="#requisitos">Requisitos</a>
+      <a class="nav-link" href="#creditos">Créditos</a>
+      <a class="nav-link primary" href="https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04-REPO/" target="_blank" rel="noopener">Web del workshop →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-eyebrow">AL Development Collection · Core v1.1</div>
+  <h1>Material <span class="accent">práctico</span> del workshop</h1>
+  <p class="hero-sub">
+    Cinco workspaces starter, uno por bloque. <strong>Clona el repo antes de entrar en sala</strong>, abre la carpeta de tu bloque en VS Code y ejecuta el flujo ALDC — desde el primer prompt hasta el PR final.
+  </p>
+
+  <div class="hero-event-meta">
+    <span class="event-chip date"><span class="icon">●</span>Lunes, 27 abril 2026</span>
+    <span class="event-chip"><span class="icon">◐</span>10:00 – 13:00 CET</span>
+    <span class="event-chip sponsor"><span class="icon">◈</span>Organizado por V-Valley España</span>
+    <span class="event-chip level"><span class="icon">◇</span>Nivel intermedio · 3h</span>
+  </div>
+
+  <div class="hero-cta-row">
+    <a class="cta primary" href="https://github.com/javiarmesto/workshop-v-valley-aldc-2026-04-EJERCICIOS" target="_blank" rel="noopener">
+      Clonar el repo <span class="arrow">→</span>
+    </a>
+    <a class="cta secondary" href="#starters">
+      Ver los starters <span class="arrow">↓</span>
+    </a>
+  </div>
+
+  <a class="hero-repo-block" href="https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04-REPO/" target="_blank" rel="noopener" aria-label="Web del workshop con los 5 bloques">
+    <div class="qr-wrap">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=176x176&amp;color=111827&amp;bgcolor=ffffff&amp;qzone=1&amp;data=https%3A%2F%2Fjaviarmesto.github.io%2Fworkshop-v-valley-aldc-2026-04-REPO%2F" alt="QR web del workshop" loading="eager" width="88" height="88">
+    </div>
+    <div class="qr-info">
+      <span class="qr-label">Web del workshop · slides y bloques</span>
+      <span class="qr-title">Workshop ALDC · V-Valley 2026</span>
+      <span class="qr-url">javiarmesto.github.io/<br>workshop-v-valley-aldc-2026-04-REPO</span>
+    </div>
+  </a>
+
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<section id="starters" aria-labelledby="starters-title">
+  <span class="section-label">Estructura</span>
+  <h2 class="section-title" id="starters-title">Cinco starters, uno por bloque</h2>
+  <p class="section-intro">
+    Cada carpeta es independiente. Abre la que corresponde al bloque que estés siguiendo. El <strong>Bloque 04</strong> tiene dos variantes — green field y brown field — que parten de contextos distintos y se resuelven con enfoques diferentes.
+  </p>
+
+  <div class="bloques-grid">
+
+    <!-- Featured: Starter 01 -->
+    <a class="bloque-card featured" href="https://github.com/javiarmesto/workshop-v-valley-aldc-2026-04-EJERCICIOS/tree/main/01-copilot-starter" target="_blank" rel="noopener">
+      <div class="bloque-head">
+        <span class="bloque-num">01</span>
+        <span class="bloque-meta">30 min · Bloque 01</span>
+      </div>
+      <div class="bloque-body">
+        <div>
+          <h3 class="bloque-title">GitHub Copilot para Business Central</h3>
+          <p class="bloque-desc">
+            El workspace de arranque del Bloque 01. Copilot configurado con <strong>Instructions + Prompts</strong> y un <code style="color:var(--cyan);font-size:0.9em">HelloWorld.PageExt.al</code> de referencia. Todo listo para practicar el patrón Context / Task / Constraints / Output.
+          </p>
+        </div>
+        <div>
+          <ul class="bloque-highlight-list">
+            <li>Instructions file con perfil BC/AL incluido</li>
+            <li>3 prompts de demostración copiables</li>
+            <li>Estructura de carpetas Tables/ vacía — la rellenas tú</li>
+            <li>Sin ALDC — solo Copilot nativo</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bloque-footer">
+        <span class="bloque-duration">30 min · Conceptual + demo</span>
+        <span class="bloque-open">Abrir en GitHub</span>
+      </div>
+    </a>
+
+    <!-- Starter 02 -->
+    <a class="bloque-card col-6" href="https://github.com/javiarmesto/workshop-v-valley-aldc-2026-04-EJERCICIOS/tree/main/02-aldc-starter" target="_blank" rel="noopener">
+      <div class="bloque-head">
+        <span class="bloque-num">02</span>
+        <span class="bloque-meta">45 min · Bloque 02</span>
+      </div>
+      <h3 class="bloque-title">ALDC + Agent Skills + Skills Evidencing</h3>
+      <p class="bloque-desc">ALDC instalado y listo. El bloque más denso — aquí se despliega la arquitectura completa en 5 capas y se practica Skills Evidencing en tiempo real.</p>
+      <ul class="bloque-highlight-list">
+        <li>aldc.yaml incluido · configuración base lista</li>
+        <li>Carpetas Skills/ y Prompts/ de partida</li>
+        <li>Ejercicios de <code style="color:var(--cyan);font-size:0.85em">skill-diagnostics</code> en vivo</li>
+      </ul>
+      <div class="bloque-footer">
+        <span class="bloque-duration">45 min · El bloque más denso</span>
+        <span class="bloque-open">Abrir en GitHub</span>
+      </div>
+    </a>
+
+    <!-- Starter 03 -->
+    <a class="bloque-card col-6" href="https://github.com/javiarmesto/workshop-v-valley-aldc-2026-04-EJERCICIOS/tree/main/03-coding-agents-starter" target="_blank" rel="noopener">
+      <div class="bloque-head">
+        <span class="bloque-num">03</span>
+        <span class="bloque-meta">45 min · Bloque 03</span>
+      </div>
+      <h3 class="bloque-title">Coding Agents · architect → spec → conductor</h3>
+      <p class="bloque-desc">El flujo real de ALDC con los tres subagentes. Incluye la guía de instalación de ALDC y el caso Barista Incidents listo para ejecutar <code style="color:var(--cyan);font-size:0.85em">al-architect</code>.</p>
+      <ul class="bloque-highlight-list">
+        <li>docs/INSTALACION-ALDC.md · paso a paso</li>
+        <li>docs/caso-barista-incidents.md · el brief</li>
+        <li>TDD en siete pasos con HITL entre fases</li>
+      </ul>
+      <div class="bloque-footer">
+        <span class="bloque-duration">45 min · Con HITL</span>
+        <span class="bloque-open">Abrir en GitHub</span>
+      </div>
+    </a>
+
+    <!-- Starter 04 Green Field -->
+    <a class="bloque-card col-6 greenfield" href="https://github.com/javiarmesto/workshop-v-valley-aldc-2026-04-EJERCICIOS/tree/main/04-greenfield-starter" target="_blank" rel="noopener">
+      <div class="bloque-head">
+        <span class="bloque-num">04</span>
+        <span class="bloque-meta">50 min · Green Field</span>
+      </div>
+      <h3 class="bloque-title">Caso práctico · desde cero</h3>
+      <p class="bloque-desc">Barista Incidents desde una extensión vacía. El PRD v0.1-live en Sprint 0 — <code style="color:var(--emerald);font-size:0.85em">al-architect</code> genera la spec, <code style="color:var(--emerald);font-size:0.85em">al-conductor</code> orquesta la implementación.</p>
+      <ul class="bloque-highlight-list">
+        <li>src/ vacío · carpetas DataModel, Logic, Pages, Security</li>
+        <li>PRD-v0.1-live-mini.md como fuente de entrada</li>
+        <li>aldc.yaml configurado para green field</li>
+      </ul>
+      <div class="bloque-footer">
+        <span class="bloque-duration">50 min · Green Field</span>
+        <span class="bloque-open">Abrir en GitHub</span>
+      </div>
+    </a>
+
+    <!-- Starter 04 Brown Field -->
+    <a class="bloque-card col-6 brownfield" href="https://github.com/javiarmesto/workshop-v-valley-aldc-2026-04-EJERCICIOS/tree/main/04-brownfield-starter" target="_blank" rel="noopener">
+      <div class="bloque-head">
+        <span class="bloque-num">04</span>
+        <span class="bloque-meta">50 min · Brown Field</span>
+      </div>
+      <h3 class="bloque-title">Caso práctico · sobre extensión existente</h3>
+      <p class="bloque-desc">Barista Incidents sobre una base ya construida. La extensión <strong>Circe Innovation · Barista Incidents 1.0.0.0</strong> está instalada. El ticket CRONUS-2026-042 es la entrada.</p>
+      <ul class="bloque-highlight-list">
+        <li>src/ completo · extensión de referencia incluida</li>
+        <li>TICKET-CRONUS-2026-042.md · brief del cliente</li>
+        <li>PRD-ALDC.md con contexto técnico completo</li>
+      </ul>
+      <div class="bloque-footer">
+        <span class="bloque-duration">50 min · Brown Field</span>
+        <span class="bloque-open">Abrir en GitHub</span>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section id="requisitos" aria-labelledby="requisitos-title">
+  <span class="section-label">Pre-requisitos</span>
+  <h2 class="section-title" id="requisitos-title">Cuatro herramientas antes de la sala</h2>
+  <p class="section-intro">
+    Todo corre en local. VS Code + la extensión AL Language + GitHub Copilot Chat + ALDC. El <strong>Bloque 03 incluye su propia guía de instalación de ALDC</strong> — para los bloques 01 y 02 las dos primeras son suficientes.
+  </p>
+
+  <div class="flow-container">
+    <div class="flow-row">
+      <div class="flow-node">
+        <span class="fn-num">Paso 1</span>
+        <span class="fn-name">VS Code</span>
+        <span class="fn-dur">actualizado</span>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node">
+        <span class="fn-num">Paso 2</span>
+        <span class="fn-name">AL Language</span>
+        <span class="fn-dur">ms-dynamics-smb.al</span>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node">
+        <span class="fn-num">Paso 3</span>
+        <span class="fn-name">Copilot Chat</span>
+        <span class="fn-dur">plan gratuito vale</span>
+      </div>
+      <span class="flow-arrow">→</span>
+      <div class="flow-node">
+        <span class="fn-num">Paso 4</span>
+        <span class="fn-name">ALDC</span>
+        <span class="fn-dur">desde Marketplace</span>
+      </div>
+      <span class="flow-arrow">→</span>
+      <span class="flow-end">✓ Listo para el lab</span>
+    </div>
+    <p class="flow-caption">
+      ~10 minutos · instalación en local · sin servidor
+    </p>
+  </div>
+
+  <div class="principles">
+    <div class="principle" data-num="01">
+      <h4>Spec <span class="accent">driven</span></h4>
+      <p>Nada se implementa sin una spec aprobada. El contrato precede al código, no al revés.</p>
+    </div>
+    <div class="principle" data-num="02">
+      <h4>HITL <span class="accent">gates</span></h4>
+      <p>Plan approval, phase commit, PR. Un humano firma entre fases — no al final, entre.</p>
+    </div>
+    <div class="principle" data-num="03">
+      <h4>Skills <span class="accent">Evidencing</span></h4>
+      <p>Cada agente declara qué skill cargó y qué patrón aplicó. Auditable por diseño.</p>
+    </div>
+  </div>
+</section>
+
+<div class="quote-block">
+  <p>La spec es el cerebro.<br>El conductor es el sistema nervioso.</p>
+  <span class="attribution">— frase ancla del workshop</span>
+</div>
+
+<section id="creditos" aria-labelledby="creditos-title">
+  <span class="section-label">Créditos y recursos</span>
+  <h2 class="section-title" id="creditos-title">Gente, proyecto, licencia</h2>
+  <p class="section-intro">
+    Todo lo que se presenta en el workshop es <strong>open source</strong> — ALDC vive en GitHub bajo licencia abierta. Este repo recoge los 5 starters; las notas del ponente son privadas.
+  </p>
+
+  <div class="credits">
+    <div class="credit-card">
+      <h4>El workshop</h4>
+      <p><strong>Organizador:</strong> V-Valley España</p>
+      <p><strong>Fecha:</strong> Lunes 27 abril 2026, 10:00 – 13:00 CET</p>
+      <p><strong>Duración:</strong> 3 horas, 5 bloques, una pausa</p>
+    </div>
+
+    <div class="credit-card">
+      <h4>El ponente</h4>
+      <p><strong>Javier Armesto</strong><br>Head of R&amp;D &amp; AI · VS Sistemas<br>Microsoft MVP · BC &amp; Azure AI Services</p>
+      <ul class="credit-link-list">
+        <li><a class="ext" href="https://techspheredynamics.com" target="_blank" rel="noopener">TechSphere Dynamics</a></li>
+        <li><a class="ext" href="https://javiarmesto.substack.com" target="_blank" rel="noopener">Substack · @javiarmesto</a></li>
+        <li><a class="ext" href="https://github.com/javiarmesto" target="_blank" rel="noopener">GitHub · javiarmesto</a></li>
+      </ul>
+    </div>
+
+    <div class="credit-card">
+      <h4>El proyecto</h4>
+      <p><strong>ALDC</strong> — AL Development Collection. Core v1.1 con ~44 piezas abiertas.</p>
+      <ul class="credit-link-list">
+        <li><a class="ext" href="https://github.com/javiarmesto/ALDC-AL-Development-Collection" target="_blank" rel="noopener">Repo ALDC</a></li>
+        <li><a class="ext" href="https://marketplace.visualstudio.com/items?itemName=JavierArmestoGonzalez.al-development-collection" target="_blank" rel="noopener">Extensión · Marketplace</a></li>
+        <li><a class="ext" href="https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04-REPO/" target="_blank" rel="noopener">Web del workshop</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <nav class="footer-links" aria-label="Navegación inferior">
+      <a href="https://github.com/javiarmesto/workshop-v-valley-aldc-2026-04-EJERCICIOS/tree/main/01-copilot-starter" target="_blank" rel="noopener">01 Copilot</a>
+      <a href="https://github.com/javiarmesto/workshop-v-valley-aldc-2026-04-EJERCICIOS/tree/main/02-aldc-starter" target="_blank" rel="noopener">02 ALDC</a>
+      <a href="https://github.com/javiarmesto/workshop-v-valley-aldc-2026-04-EJERCICIOS/tree/main/03-coding-agents-starter" target="_blank" rel="noopener">03 Coding Agents</a>
+      <a href="https://github.com/javiarmesto/workshop-v-valley-aldc-2026-04-EJERCICIOS/tree/main/04-greenfield-starter" target="_blank" rel="noopener">04 Green Field</a>
+      <a href="https://github.com/javiarmesto/workshop-v-valley-aldc-2026-04-EJERCICIOS/tree/main/04-brownfield-starter" target="_blank" rel="noopener">04 Brown Field</a>
+    </nav>
+    <p class="footer-license">
+      Contenido bajo licencia <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> · Código bajo <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT</a>. Puedes reutilizar y adaptar citando la fuente.
+    </p>
+    <p class="footer-made">Javier Armesto · 2026 · Glassmorphism on purpose</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const href = link.getAttribute('href');
+    if (href === '#') return;
+    const target = document.querySelector(href);
+    if (!target) return;
+    e.preventDefault();
+    const top = target.getBoundingClientRect().top + window.pageYOffset - 80;
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});
+
+(function(){
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const saved = localStorage.getItem('workshopTheme');
+  if(saved === 'light'){
+    root.dataset.theme = 'light';
+    btn.textContent = '☀️';
+  }
+  btn.addEventListener('click', () => {
+    const isLight = root.dataset.theme === 'light';
+    if(isLight){
+      delete root.dataset.theme;
+      btn.textContent = '🌙';
+      localStorage.setItem('workshopTheme','dark');
+    } else {
+      root.dataset.theme = 'light';
+      btn.textContent = '☀️';
+      localStorage.setItem('workshopTheme','light');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
