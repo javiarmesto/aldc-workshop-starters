@@ -5,9 +5,9 @@
 # Workshop ALDC · V-Valley 2026
 ### Template del Bloque 01 · GitHub Copilot para Business Central
 
-[![Workshop](https://img.shields.io/badge/workshop-V--Valley%202026-818CF8?style=flat-square)](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/)
-[![Bloque 01](https://img.shields.io/badge/bloque-01%20·%20Copilot-38BDF8?style=flat-square)](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/bloques/01-copilot/)
-[![AL-Go PTE](https://img.shields.io/badge/AL--Go-PTE-FBBF24?style=flat-square)](https://github.com/microsoft/AL-Go-PTE)
+[![Workshop](https://img.shields.io/badge/workshop-V--Valley%202026-232529?style=flat-square)](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/)
+[![Bloque 01](https://img.shields.io/badge/bloque-01%20·%20Copilot-7a9e00?style=flat-square)](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/bloques/01-copilot/)
+[![AL-Go PTE](https://img.shields.io/badge/AL--Go-PTE-d8723c?style=flat-square)](https://github.com/microsoft/AL-Go-PTE)
 
 **[📖 Material del bloque](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/bloques/01-copilot/)** · **[🌐 Workshop completo](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/)**
 
