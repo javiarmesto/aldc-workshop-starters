@@ -5,9 +5,9 @@
 # Workshop ALDC · V-Valley 2026
 ### Template del Bloque 02 · ALDC + Agent Skills + Skills Evidencing
 
-[![Workshop](https://img.shields.io/badge/workshop-V--Valley%202026-818CF8?style=flat-square)](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/)
-[![Bloque 02](https://img.shields.io/badge/bloque-02%20·%20ALDC-E879A8?style=flat-square)](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/bloques/02-aldc/)
-[![Agent Skills](https://img.shields.io/badge/agent--skills-spec-34D399?style=flat-square)](https://agentskills.io/specification)
+[![Workshop](https://img.shields.io/badge/workshop-V--Valley%202026-232529?style=flat-square)](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/)
+[![Bloque 02](https://img.shields.io/badge/bloque-02%20·%20ALDC-ff631f?style=flat-square)](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/bloques/02-aldc/)
+[![Agent Skills](https://img.shields.io/badge/agent--skills-spec-7a9e00?style=flat-square)](https://agentskills.io/specification)
 
 **[📖 Material del bloque](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/bloques/02-aldc/)** · **[🌐 Workshop completo](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/)**
 

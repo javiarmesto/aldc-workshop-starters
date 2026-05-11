@@ -5,9 +5,9 @@
 # Workshop ALDC · V-Valley 2026
 ### Template del Bloque 03 · Coding Agents · architect → spec → conductor
 
-[![Workshop](https://img.shields.io/badge/workshop-V--Valley%202026-818CF8?style=flat-square)](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/)
-[![Bloque 03](https://img.shields.io/badge/bloque-03%20·%20Coding%20Agents-E879A8?style=flat-square)](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/bloques/03-coding-agents/)
-[![ALDC Core v1.1](https://img.shields.io/badge/ALDC-Core%20v1.1-38BDF8?style=flat-square)](https://github.com/javiarmesto/ALDC-AL-Development-Collection)
+[![Workshop](https://img.shields.io/badge/workshop-V--Valley%202026-232529?style=flat-square)](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/)
+[![Bloque 03](https://img.shields.io/badge/bloque-03%20·%20Coding%20Agents-ff631f?style=flat-square)](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/bloques/03-coding-agents/)
+[![ALDC Core v1.1](https://img.shields.io/badge/ALDC-Core%20v1.1-7a9e00?style=flat-square)](https://github.com/javiarmesto/ALDC-AL-Development-Collection)
 
 **[📖 Material del bloque](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/bloques/03-coding-agents/)** · **[🌐 Workshop completo](https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04/)**
 
