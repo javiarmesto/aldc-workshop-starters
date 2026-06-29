@@ -1,0 +1,1 @@
+{"version":"0.2.0","configurations":[{"name":"ALDC Demo Sandbox","type":"al","request":"launch","environmentType":"Sandbox","environmentName":"sandbox","startupObjectId":22,"startupObjectType":"Page","breakOnError":"All","launchBrowser":true,"enableLongRunningSqlStatements":true,"enableSqlInformationDebugger":true}]}
