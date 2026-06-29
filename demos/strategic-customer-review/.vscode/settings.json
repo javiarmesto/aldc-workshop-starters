@@ -1,0 +1,1 @@
+{"al.enableCodeAnalysis":true,"al.codeAnalyzers":["${CodeCop}","${UICop}"],"al.ruleSetPath":"ruleset.json"}
