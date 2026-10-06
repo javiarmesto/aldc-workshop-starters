@@ -16,7 +16,7 @@
 ## Clonar este repo
 
 ```bash
-git clone https://github.com/javiarmesto/workshop-v-valley-aldc-2026-04-EJERCICIOS.git
+git clone https://github.com/javiarmesto/aldc-workshop-starters.git
 ```
 
 ---
