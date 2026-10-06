@@ -2,6 +2,15 @@
 
 # Workshop ALDC · V-Valley 2026 · Ejercicios
 
+## Edición y primer recorrido
+
+Material de la edición **V-Valley, 27 de abril de 2026**. Empieza por [01-copilot-starter](01-copilot-starter/README.md), después [02-aldc-starter](02-aldc-starter/README.md) y [03-coding-agents-starter](03-coding-agents-starter/README.md). Los bloques 04 separan trabajo greenfield y brownfield.
+
+Abre el workspace o carpeta del bloque que elijas; configura tu sandbox y sigue **su** README. La raíz es un portal de ejercicios, no una única extensión publicable. Para compilar necesitas AL Language y símbolos compatibles con el `app.json` del bloque; el resultado esperado y la configuración se comprueban en ese bloque, con datos de prueba.
+
+La declaración MIT del README no va acompañada de un archivo LICENSE en la raíz. Se conserva la declaración y queda pendiente aclarar el alcance antes de añadir bcopensource. Revisión estática del 6 de octubre de 2026, sin ejecutar el workshop.
+
+
 > **Material práctico** del Workshop "Coding agents para Business Central"  
 > 27 abril 2026 · organizado por V-Valley España
 
@@ -9,7 +18,7 @@
 
 ## Web del workshop
 
-➡️ **https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04-REPO/**
+➡️ [Portal incluido en este checkout](index.html). El enlace de la convocatoria original era `https://javiarmesto.github.io/workshop-v-valley-aldc-2026-04-REPO/`; su disponibilidad no se presupone.
 
 ---
 
